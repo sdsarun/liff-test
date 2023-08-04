@@ -29,7 +29,7 @@
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
   <p id="universalLink1"><b>Universal Link:</b> </p>
   <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
-  <p><a href="liff/path/?param=9">Link to Path</a></p>
+  <p><a href="/path/?param=9">Link to Path</a></p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
@@ -55,6 +55,7 @@
       // add query param
       liff.permanentLink.setExtraQueryParam('param=199'); // link1?param9
 
+      // create a new link with with query param
       const link2 = liff.permanentLink.createUrl();
       document.getElementById("universalLink2").append(link2);
     }
@@ -184,7 +185,7 @@
         getContext()
         getFriendship()
       } else {
-        liff.login();
+        // liff.login();
       }
 
       createUniversalLink()

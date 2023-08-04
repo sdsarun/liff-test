@@ -20,5 +20,37 @@
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
   </script>
+  <script>
+    async function getUserProfile() {
+      // can get user information
+      // - profile image
+      // - user id
+      // - status message
+      // - email
+
+      const profile = await liff.getProfile();
+
+      document.getElementById("pictureUrl").src = profile.pictureUrl;
+      document.getElementById("userId").append(profile.userId);
+      document.getElementById("statusMessage").append(profile.statusMessage);
+      document.getElementById("displayName").append(profile.displayName);
+      document.getElementById("email").append(profile.email);
+      // document.getElementById("decodedIDToken").append(profile.)
+
+    }
+
+    async function main() {
+      await liff.init({ liffId: "2000305269-LVmg06P2" });
+
+      if (liff.isLoggedIn()) {
+        getProfile();
+      } else {
+        liff.login({ redirectUri: "https://liff-test-dev.vercel.app/path"})
+      }
+    }
+
+    main()
+  </script>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </body>
 </html>
