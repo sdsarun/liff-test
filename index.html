@@ -49,6 +49,14 @@
 
   <script>
     function createUniversalLink() {
+      const link1 = liff.permanentLink.createUrl();
+      document.getElementById("universalLink1").append(link1);
+
+      // add query param
+      liff.permanentLink.setExtraQueryParam('param=199');
+
+      const link2 = liff.permanentLink.createUrl();
+      document.getElementById("universalLink2").append(link2);
     }
 
     async function shareMsg() {
@@ -179,7 +187,7 @@
         liff.login();
       }
 
-      // createUniversalLink()
+      createUniversalLink()
     }
     main()
   </script>
