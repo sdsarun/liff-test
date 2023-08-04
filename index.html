@@ -70,7 +70,22 @@
     async function sendMsg() {
     }
 
+    /**
+     * To tell 'where' user open your LIFF App
+     * To do by lift.getContext()
+     * 
+     * */
     function getContext() {
+      // Type
+      // - One on One (utou)
+      // - Room
+      // - Group
+      document.getElementById("type").append(liff.getContext().type); // type, external will throw null
+      document.getElementById("viewType").append(liff.getContext().viewType); // full, tall, compact
+
+      document.getElementById("utouId").append(liff.getContext().utouId); // one on one ID
+      document.getElementById("roomId").append(liff.getContext().roomId); // room ID
+      document.getElementById("groupId").append(liff.getContext().groupId); // group ID
     }
 
     async function getUserProfile() {
@@ -103,7 +118,7 @@
       await liff.init({ liffId: "2000305269-LVmg06P2" })
       getEnvironment()
       getUserProfile()
-      // getContext()
+      getContext()
       // getFriendship()
       // createUniversalLink()
     }
