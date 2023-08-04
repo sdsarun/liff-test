@@ -46,7 +46,7 @@
       await liff.init({ liffId: "2000305269-LVmg06P2" });
 
       if (liff.isLoggedIn()) {
-        getProfile();
+        getUserProfile();
       } else {
         liff.login({ redirectUri: "https://liff-test-dev.vercel.app/path"})
       }
