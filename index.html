@@ -52,10 +52,14 @@
     }
 
     async function shareMsg() {
-      await liff.shareTargetPicker([
+      const result = await liff.shareTargetPicker([
         {
-          type: "text",
-          text: "This message was send by sharetargetpicker"
+          "type": "text",
+          "text": "Hello World!"
+        },
+        {
+          "type": "text",
+          "text": "Messages from Share Target Picker"
         }
       ])
     }
