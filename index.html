@@ -59,7 +59,10 @@
     }
 
     async function scanCode() {
-      const result = await liff.scanCode();
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      }
+      const result = await liff.scanCodeV2();
       document.getElementById("scanCode").append(result.value);
     }
 
