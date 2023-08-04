@@ -64,7 +64,16 @@
     function openWindow() {
     }
 
+    // Check your and another friend have been added or not? | true, false
     async function getFriendship() {
+      const friend = await liff.getFriendship();
+      document.getElementById("friendship").append(friend.friendFlag);
+
+      if (!friend.friendFlag) {
+        if (confirm("I need you to add my bot")) {
+          window.location = "https://line.me/R/ti/p/@253mprbn"
+        }
+      }
     }
 
     async function sendMsg() {
