@@ -68,6 +68,17 @@
     }
 
     async function sendMsg() {
+      // can send message only type not none
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+          }
+        ]);
+        alert("Message sent");
+      }
     }
 
     /**
